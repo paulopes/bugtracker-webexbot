@@ -92,9 +92,13 @@ def main():
     msg_id = data.get('id')
     msg_dict = get_message(at, msg_id)
     #Parse the text
-    input = msg_dict.get('text')
-    if input: 
-        text = listen(input.split())
+    msg_text = msg_dict.get('text')
+    if text.startswith('Bug'):
+        input = msg_text[3:].split()
+    else:
+        input = msg_text.split()
+    if len(input: 
+        text = listen(input)
     else:
         return 'heroku done', 200
     
