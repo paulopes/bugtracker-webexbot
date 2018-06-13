@@ -93,7 +93,7 @@ def main():
     msg_dict = get_message(at, msg_id)
     #Parse the text
     msg_text = msg_dict.get('text')
-    if text.startswith('Bug'):
+    if msg_text.startswith('Bug'):
         input = msg_text[3:].split()
     else:
         input = msg_text.split()
