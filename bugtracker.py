@@ -4,7 +4,7 @@ import os
 from flask import Flask, render_template, request
 
 # Init Flask
-app = Flask(__name__, static_url_path='/static')
+app = Flask(__name__)
 
 # Helpers
 def _url(path):
@@ -39,18 +39,19 @@ def post_message_markdown(at, text, roomId='', toPersonId='', toPersonEmail=''):
 
         
 # Bot functionality 
-def showbug(input):
-    text = "This is bug **{}**".format(input[5:].rstrip())
+def showbug(bugid):
+    text = "This is bug **{}**".format(bugid)
     return text
     
 def help():
-    text = 'Type "show" followed by a bug ID'
+    text = 'Type a bug ID'
     return text
     
 def listen(input):
-    if input.lower().startswith('show '):
-        return showbug(input)
-    elif input.lower() == 'help':
+    first_lower = input[0].lower()
+    if first_lower.startswith('csc'):
+        return showbug(input[0])
+    elif first_lower == 'help':
         return help()
     else:
         return 'heroku done', 200
@@ -92,7 +93,7 @@ def main():
     #Parse the text
     input = msg_dict.get('text')
     if input: 
-        text = listen(input.lstrip())
+        text = listen(input.split())
     else:
         return 'heroku done', 200
     
