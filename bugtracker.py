@@ -54,7 +54,8 @@ def listen(input):
     elif first_lower == 'help':
         return help()
     else:
-        return 'heroku done', 200
+        return json.dumps(input)
+        # return 'heroku done', 200
 
 """
 ENTRY FUNCTION FOR HEROKU
