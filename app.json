@@ -1,0 +1,17 @@
+{
+	"name": "Bug Tracker WebEx Bot",
+	"description": "Track bugs that are discussed in a conversation or space.",
+    "image": "heroku/python",
+	"repository": "https://github.com/paulopes/bugtracker-webexbot",
+	"keywords": ["python", "flask", "cisco", "spark", "webex", "teams"],
+	"addons": [ "heroku-postgresql" ],
+	"env": {
+		"WEBEX_BOT_AUTH_TOKEN": {
+			"description": "Create your app on https://developer.webex.com/apps.html and you'll get a token"
+		},
+		"WEBEX_BOT_USERNAME": {
+			"description": "The name of your bot preceding @sparkbot.io",
+			"value": "showbug@webex.bot"
+		}
+	}
+}
