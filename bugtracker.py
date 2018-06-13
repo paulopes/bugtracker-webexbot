@@ -97,7 +97,7 @@ def main():
         input = msg_text[3:].split()
     else:
         input = msg_text.split()
-    if len(input: 
+    if len(input) > 0: 
         text = listen(input)
     else:
         return 'heroku done', 200
