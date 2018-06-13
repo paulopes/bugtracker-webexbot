@@ -4,7 +4,7 @@ import os
 from flask import Flask, render_template, request
 
 # Init Flask
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static')
 
 # Helpers
 def _url(path):
